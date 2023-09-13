@@ -1,0 +1,83 @@
+/* Styling for the chatbot container */
+#bp-webchat-container {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Styling for the chatbot header */
+#bp-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Styling for the chat messages */
+.bp-message-text {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* Styling for user messages */
+.bp-user-message .bp-message-text {
+    background-color: #e2e2e2;
+    color: #000;
+}
+
+/* Styling for bot messages */
+.bp-bot-message .bp-message-text {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Styling for the chat input area */
+#bp-composer {
+    background-color: #fff;
+    border: none;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Styling for the chat input field */
+#bp-composer-input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+/* Styling for the send button */
+#bp-send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Styling for the chatbot's avatar */
+#bp-avatar {
+    border-radius: 50%;
+}
+
+/* Styling for links in chat messages */
+.bp-message-text a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Styling for the chatbot's info page */
+#bp-about-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
