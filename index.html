@@ -6,11 +6,17 @@
     <meta name="description" content="Your meta description here">
     <title>D DAN C</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
     <style>
+
+        * {
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
         body {
             font-family: Roboto;
-            background-color: #121212;
+            background-color: black;
+            color: white;
             height: 10000px;
         }
         header {
@@ -48,64 +54,137 @@
         }
 
         .nav-links li {
-            margin-right: 0;
+            border:;
+            margin-top: 3px;
             background-color: black;
-            width: 80px;
-            height: 30px;
-            text-align: center;
-            border-radius: 0px;
-            padding-top: 10px;
-        }
-        
-        
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
+            color: white;
+            width: 20%;
+            padding: 10px;
         }
 
+        .nav-links .humburgers {
+            width: 6%;
+            position: inline-block;
+            background-color: #333;
+        }
 
-        /* Added style for the tools menu */
-        .tools {
+        /* Style for the hamburger icon */
+        .hamburger {
             display: flex;
-            position: fixed;
-            top: 0%;
-            left: 100%;
-            /* Start with menu off-screen */
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 200;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            width: 0;
-            /* Start with width at 0 */
-            transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
-            /* Add width transition */
-        }
-        
-        
-        .tools li {
-            background-color: #40E0D0;
-            /* Attractive blue background color */
-            color: #fff;
-            /* White text color for contrast */
-            padding: px;
-            /* Add some padding for better appearance */
-            margin: 5px;
-            /* Add margin for spacing between items */
-            border-radius: 5px;
-            /* Rounded corners for a modern look */
+            justify-content: space-between;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background-color:;
         }
 
-
-        .tools.open {
-            left: 0;
-            /* Move menu to the left when open */
+        /* Style for the lines in the hamburger icon */
+        .hamburger .line {
             width: 100%;
-            /* Expand width to fill the screen */
+            height: 3px;
+            background-color: #ff2400;
         }
+
+
+        .menu {
+            background-color: #ff5349;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            /* Start off-screen to the left */
+            width: 100%;
+            /* Cover the whole page horizontally */
+            height: 100%;
+            z-index: 1;
+            overflow-x: hidden;
+            transition: left 0.3s ease;
+            /* Smooth transition for menu */
+            text-align: center;
+        }
+
+        .menu-open {
+            left: 0;
+            /* Slide in from the left when the menu is open */
+        }
+
+        .humburger.open .line.middle {
+            transform: rotate(0deg);
+            /* Rotate the middle line to create an X */
+            opacity: 0;
+            /* Make the middle line fully visible */
+        }
+        .nav-links.open {
+            display: none;
+        }
+        .humburger.open .line.top,
+        .humburger.open .line.bottom {
+            width: 0;
+            /* Hide the top and bottom lines when the menu is open */
+        }
+
+        /* Add this rule to hide the logo */
+        .logo {
+            display:;
+        }
+
+        .menu a {
+            font-size: 24px;
+            text-decoration: none;
+            color: white;
+            padding: 20px 0;
+            display: block;
+        }
+
+        .menu-open {
+            left: 0;
+            /* Slide in from the left when menu is open */
+        }
+
+        /* Add a smooth transition effect on hover */
+        .nav-links li {
+            transition: background-color 0.3s ease;
+        }
+
+        /* Add a smooth transition effect on click */
+        .nav-links li:active,
+        .nav-links li:focus {
+            transition: background-color 0.3s ease;
+        }
+
+        /* Add a hover animation */
+        .nav-links li:hover {
+            background-color: #555;
+            animation: hoverAnimation 0.3s ease;
+        }
+
+        /* Add a click animation */
+        .nav-links li:active,
+        .nav-links li:focus {
+            background-color: #777;
+            animation: clickAnimation 0.3s ease;
+        }
+
+        /* Define the hover animation */
+@keyframes hoverAnimation {
+            0% {
+                background-color: #333;
+            }
+            100% {
+                background-color: #555;
+            }
+        }
+
+        /* Define the click animation */
+@keyframes clickAnimation {
+            0% {
+                background-color: #333;
+            }
+            100% {
+                background-color: #777;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -114,48 +193,84 @@
             <img src="logo.gif" class="logo_png" width="80px">
         </a>
         <ul class="nav-links">
-            <li><a href="#" class="nav-link">HOME</a></li>
-            <li><a href="#" class="nav-link">ABOUT</a></li>
-            <li><a href="#" class="nav-link">CONTACT</a></li>
-            <li><a href="#" id="tools-button">TOOLS</a>
-                <ul class="tools" id="tools">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a id="close-tools">close</a></li>
-                </ul>
+            &nbsp;
+            <li><a href="#" class="nav-link" onclick="stillBuilding()">HOME</a></li>
+            <li><a href="#" class="nav-link" onclick="stillBuilding()">ABOUT</a></li>
+            <li><a href="#" class="nav-link" onclick="stillBuilding()">CONTACT</a></li>
+            <li class="humburgers">
+                <!-- Replace the div with the hamburger icon -->
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div class="line"></div>
+                    <div class="line middle"></div>
+                    <div class="line"></div>
+                </div>
             </li>
         </ul>
     </header>
-    <nav>
+    <nav class="menu">
+        <pre>
+
+
+
+
+
+        </pre>
         <!-- Additional navigation links go here -->
+        STILL IN CODING...
     </nav>
+    <div class="space empty" style="height: 60px"></div>
+    <main class="main-page">
+        <!-- post-1 -->
+        <div style="background-color: #f0f0f0; padding: 20px; text-align: center;">
+            <h1 style="color: #333;">Discover the Future of Technology with Tech Innovations Inc.</h1>
+            <img src="hands-820272_1280.jpg" alt="Tech Innovations Inc. Image" style="max-width: 100%; height: auto; margin: 20px 0;">
+            <p style="font-size: 18px; color: #555; line-height: 1.6;">
+                At Tech Innovations Inc., we're on a mission to reshape the world through cutting-edge technology. 🌟
+            </p>
+            <p style="font-size: 18px; color: #555; line-height: 1.6;">
+                From groundbreaking AI solutions to sustainable energy innovations, our team of experts is at the forefront of change. Join us on this journey to explore the latest advancements and stay ahead in the ever-evolving tech landscape. 💡
+            </p>
+            <p style="font-size: 18px; color: #555; line-height: 1.6;">
+                Stay tuned for exciting updates and insights! 🚀 #TechInnovations #Innovation #Technology
+            </p>
+            
+            <!-- post 2 -->
+            <div style="background-color: #f0f0f0; padding: 20px; text-align: center;">
+                <h1 style="color: #333;">Explore the World of Science with Science Discoveries Co.</h1>
+                <img src="microscope-163446_1280.jpg" alt="Science Discoveries Co. Image" style="max-width: 100%; height: auto; margin: 20px 0;">
+                <p style="font-size: 18px; color: #555; line-height: 1.6;">
+                    At Science Discoveries Co., we're dedicated to unraveling the mysteries of the universe. 🔬
+                </p>
+                <p style="font-size: 18px; color: #555; line-height: 1.6;">
+                    From groundbreaking research in astrophysics to cutting-edge experiments in biology, our team of scientists is at the forefront of discovery. Join us on this journey to delve into the latest scientific breakthroughs and expand your knowledge. 🌌
+                </p>
+                <p style="font-size: 18px; color: #555; line-height: 1.6;">
+                    Stay tuned for exciting updates and insights! 🌟 #ScienceDiscoveries #Exploration #Science
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>
+        &copy; 2023 D DAN C Website. All rights reserved.
+    </p>
+</footer>
 
-    <main>
-        <!-- Content of your homepage goes here -->
-    </main>
+<script>
+    function stillBuildin() {
+        alert('Oops! Still building...')
+    }
 
-    <footer>
-        <!-- Footer content goes here -->
-    </footer>
+    var menu = document.querySelector(".menu"); // Get the menu element
+    var humburger = document.querySelector(".humburger");
+    var middle = document.querySelector(".middle");
 
-    <script>
-        // JavaScript to toggle the visibility of the "tools" menu
-        const toolsButton = document.getElementById('tools-button');
-        const toolsMenu = document.getElementById('tools');
-        const closeToolsButton = document.getElementById('close-tools');
 
-        toolsButton.addEventListener('click', () => {
-            toolsMenu.classList.add('open'); // Add the "open" class to trigger the animation
-            closeToolsButton.style.display = 'block';
-        });
-
-        closeToolsButton.addEventListener('click', () => {
-            toolsMenu.classList.remove('open'); // Remove the "open" class to close the menu
-            closeToolsButton.style.display = '';
-        });
-    </script>
+    function toggleMenu() {
+        menu.classList.toggle("menu-open"); // Toggle the "menu-open" class for the menu
+        humburger.classList.toggle("open");
+    }
+</script>
 </body>
 </html>
